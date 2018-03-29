@@ -68,7 +68,6 @@ controller('MainController', function ($compile,$scope,io) {
       io.createroom({io:id,roomname:$scope.roomName,picPath:$scope.picPath});
       $scope.room=id;
       modalRoom.style.display = "none";
-      modalUser.style.display = "block";
     }else{
       alert("Pick an Image and Enter a Room Name!!");
     }
