@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>mini-chat</title>
+  <link href="/css/app.css" rel="stylesheet" >
+
+</head> 
+
+<body ng-app="myApp">
+  <div ng-controller="MainController">
+
+    <div ng-init="rooms()">
+
+      <div ng-show="roomsShow" class="existingRooms" id="existingRooms">
+          <h1 align="center">Pick a Room or Create a New One:</h1>
+          <div  >
+                    <div class="thumbnailpic">
+                        <img id="myBtn" class="grow " src="https://wisecodedev.com/imagensgeral/add.png"  alt="not Found">
+                        <br><p align="center" style="font-size:150%;">New Room</p>
+                        </div>
+
+                  <div class="thumbnailpic" ng-repeat="room in existingRooms">
+
+                      <a href="" ng-click="pickRoom(room)"><img class="grow " src={{room.picPath}}  alt="not Found"></a>
+                      <br><p align="center" style="font-size:150%;">{{room.roomname}}</p>
+                    
+                  </div>
+          </div>        
+
+      </div>
+      
+      <div ng-show='chatRoomShow' class="chatRoom" id="chatRoom">
+        <div class="roomHeader">
+          <div class="avatarRoom">
+            <img src={{room.picPath}} alt="">
+          </div>
+          <div class="roomName"><h2 align="center" style="color:white;">{{room.roomname}}</h2></div>
+          
+        </div>
+        <div class="messagesArea" id="messageArea">
+          <!-- Message Exchanging Here -->
+        </div>
+        <div class="typingArea">
+          <!-- Message Typing Here -->
+          <input type="text" class="typingInput" ng-model="message" placeholder="Type a Message..." ng-keypress="getkeys($event)">
+          <a class="sendMessage" ng-click="send()"><img  style="max-width:100%; height:30px;" src="https://wisecodedev.com/imagensgeral/send.png" alt=""></a>
+        </div>
+      </div>
+
+    </div>
+
+    
+   <!-- <button id="userBtn">New User</button>-->
+
+  <!-- Modal Create Room -->
+  <div id="createRoomModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-contents">
+        <span class="close">&times;</span>
+          <div class="imgPicker">
+            <!--pick an Image -->  
+            <h1>Pick a Category: </h1>
+            <div class="avatargetpic" ng-click="setpic('http://wisecodedev.com/imagensgeral/fun.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/fun.png" alt="Not Found"></div>
+            <div class="avatargetpic" ng-click="setpic('http://wisecodedev.com/imagensgeral/bussiness.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/bussiness.png" alt="Not Found"></div>
+            <div class="avatargetpic" ng-click="setpic('http://wisecodedev.com/imagensgeral/metting.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/metting.png" alt="Not Found"></div>
+
+          </div>
+          <div class="roomInput">
+            <!--Enter Room Name -->  
+            <h1>Enter a Room Name: <span style="color:red;">{{roomName}}</span></h1>
+            <div class="inputRoomtxt"><input type="text"  class="typingInput2" ng-model="roomName" placeholder="Enter Room Name..."></div>
+            <button class="button" ng-click="createroom()">Create Room</button>
+          </div>
+
+      </div>
+    
+  </div>  
+  <!-- Modal Create User -->
+  <div id="createUserModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-contents">
+        <span class="userclose close">&times;</span>
+        <div class="imgPicker">
+            <!--pick an Image -->  
+            <h1>Pick an Avatar: </h1>
+            <a href=""><div class="avatargetpic" ng-click="setAvatarPic('http://wisecodedev.com/imagensgeral/avatars/1.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/avatars/1.png" alt="Not Found"></div></a>
+            <a href=""><div class="avatargetpic" ng-click="setAvatarPic('http://wisecodedev.com/imagensgeral/avatars/2.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/avatars/2.png" alt="Not Found"></div></a>
+            <a href=""><div class="avatargetpic" ng-click="setAvatarPic('http://wisecodedev.com/imagensgeral/avatars/3.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/avatars/3.png" alt="Not Found"></div></a>
+            <a href=""><div class="avatargetpic" ng-click="setAvatarPic('http://wisecodedev.com/imagensgeral/avatars/4.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/avatars/4.png" alt="Not Found"></div></a>
+            <a href=""><div class="avatargetpic" ng-click="setAvatarPic('http://wisecodedev.com/imagensgeral/avatars/5.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/avatars/5.png" alt="Not Found"></div></a>
+            <a href=""><div class="avatargetpic" ng-click="setAvatarPic('http://wisecodedev.com/imagensgeral/avatars/6.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/avatars/6.png" alt="Not Found"></div></a>
+            <a href=""><div class="avatargetpic" ng-click="setAvatarPic('http://wisecodedev.com/imagensgeral/avatars/7.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/avatars/7.png" alt="Not Found"></div></a>
+            <a href=""><div class="avatargetpic" ng-click="setAvatarPic('http://wisecodedev.com/imagensgeral/avatars/8.png')"><img class="grow" style="max-width:100%; max-height:100%;" src="http://wisecodedev.com/imagensgeral/avatars/8.png" alt="Not Found"></div></a>
+          </div>
+
+          <div class="roomInput">
+              <!--Enter Room Name -->  
+              <h1>Enter a Nickname: <span style="color:red;">{{nickName}}</span></h1>
+              <div class="inputRoomtxt"><input type="text"  class="typingInput2" ng-model="nickName" placeholder="Enter a Nickname..."></div>
+              <button class="button" ng-click="register()">Enter Room</button>
+            </div>
+     
+      </div>
+    
+  </div>  
+
+  </div>
+  <script src="js/angular.js"></script>
+  <script src="//localhost:3696/socket.io/socket.io.js"></script>
+  <script src="js/io.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
+<!--    <div>
+      <input type="text" ng-model="message">
+      <button ng-click="send()">Send</button>
+      <hr>
+      <h1>{{lastMessage}}</h1>
+    </div>  -->

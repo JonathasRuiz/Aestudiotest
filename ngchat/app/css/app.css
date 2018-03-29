@@ -1,0 +1,325 @@
+.grow:hover
+{
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+}
+
+body{
+    height: 100vh;
+    margin: -1;
+    background: rgb(167,207,223); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(167,207,223,1) 0%, rgba(35,83,138,1) 69%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(167,207,223,1) 0%,rgba(35,83,138,1) 69%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(167,207,223,1) 0%,rgba(35,83,138,1) 69%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 ); /* IE6-9 */
+}
+
+
+/* The Modal (background) */
+.modal {
+    border-radius: 20px;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.modal-contents {
+    position: relative;
+     /* For 100% screen width */
+     background-color: #ffffff;
+     /*border: 1px solid black;*/
+     opacity: 0.95;
+     filter: alpha(opacity=60); /* For IE8 and earlier */
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 20px;
+    width: 50%;
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.thumbnailpic{
+    width: 20%;
+    height: 250px;
+    float: left;
+    text-align: center;
+    
+}
+.thumbnailpic img{
+    max-width: 100%;
+    padding: 10%;
+    height: 180px;
+    max-height: 180px;
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+
+    overflow:auto;
+}
+
+div.imgPicker{
+    text-align: center;
+    width: 100%;
+    height: 220px;
+
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+
+    overflow:auto;
+    
+}
+
+div.roomInput{
+    padding: 1%;
+    text-align: center;
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+
+    overflow:auto;
+}
+
+div.existingRooms{
+    text-align: center;
+    width: 80%;
+    height: 400px;
+    position: absolute;
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+
+    /*this to solve "the content will not be cut when the window is smaller than the content": */
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+}
+
+div.messagesArea{
+
+    height: 80vh; /* For 100% screen height */
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+div.chatRoom{
+    width: 85%;
+
+    position:absolute; /*it can be fixed too*/
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+
+    /*this to solve "the content will not be cut when the window is smaller than the content": */
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+}
+
+div.typingArea{
+    width:  95%; /* For 100% screen width */
+    padding: 10px;
+}
+
+.typingInput{
+    width: 75vw;
+    border-radius: 30px;
+    height: 40px;
+    float: left;
+}
+
+.typingInput2{
+    width: 80%;
+    border-radius: 30px;
+    height: 40px;
+}
+
+.sendMessage{
+    background-color: #cce0ff;
+    width: 40px;
+    border-radius: 50%;
+    float: left;
+}
+
+.sendMessage:hover{
+    border: solid 1px;
+    background-color:#66a3ff ;
+}
+
+.msgBox{
+     /* For 100% screen width */
+    background-color: #ffffff;
+    /*border: 1px solid black;*/
+    opacity: 0.65;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    border-radius: 30px;
+    margin-left: 10px;
+    padding: 30px;
+    float: left;
+}
+
+.activeUser{
+    float: left;
+    width:  93%;
+}
+.otherUsers{
+    float: right;
+    width:  90%;
+}
+
+.userNickname .imgAvatar{
+    
+}
+.divAvatar{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+
+.imgAvatar{
+    max-width: 100%;
+}
+
+.msgDiv{
+    margin-top: 15px;
+    display: block;
+    clear: both;
+    width: 100%;
+}
+.msgDivWrap{
+    position: relative;
+    width: 50%;
+}
+
+.avatarRoom{
+    float: left;
+    width: 15%;
+    height: 80px;
+    
+}
+
+.roomHeader{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c4c4c+0,595959+12,666666+18,474747+25,2c2c2c+41,000000+51,111111+60,2b2b2b+76,1c1c1c+91,131313+100 */
+background: rgb(76,76,76); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 25%, rgba(44,44,44,1) 41%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 18%,rgba(71,71,71,1) 25%,rgba(44,44,44,1) 41%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 18%,rgba(71,71,71,1) 25%,rgba(44,44,44,1) 41%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+    height: 80px;
+}
+.roomName{
+    float: left;
+    width: 70%;
+}
+.avatarRoom img{
+    max-height: 100%;
+}
+
+.detailsSpan{
+    float: right;
+}
+
+.txtDivWrap{
+overflow: auto;
+display: table;
+    width: 80%;
+}
+
+.btnNewRoom{
+    padding: 10%;
+    background-color: blue;
+    height: 230px;
+    width: 100%;
+    border-radius: 50%;
+    font-size: 900%;
+}
+.avatargetpic{
+    display: inline-block;
+    height: 120px;
+}
+
+.goconf{
+    height: 60px;
+    padding: 10px;
+}
+
+.inputRoomtxt{
+    height: 40px;
+    padding: 10px;
+}
+
+.button {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .button:hover {background-color: darkblue}
+  
+  .button:active {
+    background-color: dodgerblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
